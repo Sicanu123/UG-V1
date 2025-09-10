@@ -86,8 +86,11 @@ class MyBot(discord.Client):
 
 bot = MyBot()
 
+@app_commands.default_permissions(move_members=True)  # doar cu permisiunea Move Members
 @bot.tree.command(name="goto", description="Mută toți membrii activi din vocea ta curentă într-un alt canal de voce.")
 async def goto(interaction: discord.Interaction):
+    ...
+
     await interaction.response.defer(ephemeral=True, thinking=True)
     if interaction.guild is None:
         return await interaction.followup.send("❌ Folosește comanda într-un server.", ephemeral=True)
@@ -116,4 +119,5 @@ if __name__ == "__main__":
     if not TOKEN:
         raise SystemExit("Setează variabila DISCORD_TOKEN în Render sau direct în cod pentru test.")
     bot.run(TOKEN)
+
 
