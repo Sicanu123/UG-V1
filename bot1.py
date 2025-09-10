@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("goto-bot")
 
 # ===== CONFIG =====
-TOKEN = os.getenv("#token disc")  # îl punem în Render Env Vars
+TOKEN = os.getenv("DISCORD_TOKEN")  # îl punem în Render Env Vars
 GUILD_ID = None  # pune aici un ID de server pentru sync mai rapid, ex: 123456789012345678
 # ==================
 
@@ -116,3 +116,4 @@ if __name__ == "__main__":
     if not TOKEN:
         raise SystemExit("Setează variabila DISCORD_TOKEN în Render sau direct în cod pentru test.")
     bot.run(TOKEN)
+
